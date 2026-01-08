@@ -1,8 +1,7 @@
-import { sha } from "bun";
-import { prisma } from "../lib/prisma";
+import { Prisma } from "../db/prisma";
 
 async function main() {
-    const user = await prisma.user.create({
+    const user = await Prisma.user.create({
         data : {
             name : 'test123',
             email : 'inidia@gmail.com',
@@ -16,5 +15,5 @@ async function main() {
 main().catch((error) => {
     console.log(error);
 }).finally(async () => {
-    await prisma.$disconnect();
+    await Prisma.$disconnect();
 });
