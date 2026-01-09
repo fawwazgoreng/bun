@@ -1,3 +1,4 @@
+import type { userRequestType} from "../../../types/global/responseapi";
 import type { registerForm } from "../../../types/user/repostori";
 
 const usernamevalidation = (username: string) => {
@@ -26,10 +27,10 @@ const passwordValidation = (password: string) => {
     throw Error("password minimal 3 character");
   }
   let isStrong = 0;
-  if (/^(?=.*[a-z])$/.test(password)) isStrong++;
-  if (/^(?=.*[A-Z])$/.test(password)) isStrong++;
-  if (/^(?=.*[0-9])$/.test(password)) isStrong++;
-  if (/^(?=.*[!@#$%^&*])$/.test(password)) isStrong++;
+  if (/(?=.*[a-z])/.test(password)) isStrong++;
+  if (/(?=.*[A-Z])/.test(password)) isStrong++;
+  if (/(?=.*\d)/.test(password)) isStrong++;
+  if (/(?=.*[!@#$%^&*])/.test(password)) isStrong++;
   if (isStrong < 3) {
     throw Error("password weak");
   }
@@ -41,10 +42,10 @@ export const registerValidation = (validator: registerForm) => {
     usernamevalidation(validator.name);
     emailValidation(validator.email);
     passwordValidation(validator.password);
-    const res = {
+    const res : userRequestType = {
       status: 200,
       message: "success",
-      data: {
+      data : {
         name: validator.name,
         email: validator.email,
         password: validator.password,

@@ -1,5 +1,4 @@
 import figlet from "figlet";
-import type { registerForm } from "./types/user/repostori";
 import { UserCase } from "./aplication/usecase/userCase";
 import userController from "./interface/http/controller/userController";
 
@@ -17,8 +16,10 @@ async function main () {
                 "POST" : async (req) => {
                     try {
                         const res = await user_controller.register(req);
-                        // console.log(res);
-                        return Response.json(`${res}`);
+                        if (res) {
+                            return res;
+                        }
+                        return new Response();
                     } catch (e : any) {
                         return Response.json(e);
                     }
