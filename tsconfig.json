@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx"
+  },
+  "baseUrl": ".",
+  "paths": {
+    "@/*": ["src/*"],
+    "@domain/*": [
+      "src/domain/*"
+    ],
+    "@entity/*": [
+      "src/entity/*"
+    ],
+    "@controller/*": [
+      "src/controller/*"
+    ],
+    "@repository/*": [
+      "src/repository/*"
+    ],
+    "@services/*": [
+      "src/services/*"
+    ],
+    "@infrastructure/*": [
+      "src/infrastructure/*"
+    ]
+  },
+  "include": ["src/**/**/*"],
+  "exclude": [
+    "node_modules",
+    ".env",
+    "types"
+  ]
+}

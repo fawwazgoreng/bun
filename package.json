@@ -1,0 +1,23 @@
+{
+  "name": "first",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts",
+    "test" : "vitest",
+    "db:generate": "prisma generate",
+    "db:seed": "prisma db seed",
+    "db:push": "prisma db push",
+    "db:pull": "prisma db pull",
+    "db:studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/adapter-mariadb": "^7.3.0",
+    "@prisma/client": "^7.3.0",
+    "hono": "^4.11.8",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prisma": "^7.3.0",
+    "vitest": "^4.0.18"
+  }
+}
